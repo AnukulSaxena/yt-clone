@@ -47,6 +47,30 @@ class VideoService {
         }
     }
 
+    async
+
+    async getAllVideos() {
+        try {
+            const response = await this.axiosInstance.get('/videos');
+            console.log(response)
+            return response.data.data
+        } catch (error) {
+            console.error("VideoConfig :: getallVideos :: error", error)
+            return []
+        }
+    }
+
+    async getAllVideosCount(userId) {
+        try {
+            const response = await this.axiosInstance.get(`videos/count/?userId=${userId}`)
+
+            return response.data.data[0].TotalVideos
+        } catch (error) {
+            console.error("VideoConfig :: getallVideosCount :: error", error)
+            return 0
+        }
+    }
+
 }
 
 const videoService = new VideoService();

@@ -11,7 +11,7 @@ const Header = () => {
 
         <>
             <div
-                className='w-full z-50 px-4 fixed dark:text-white top-0 h-16 bg-white dark:bg-gray-800 flex  justify-between'
+                className='w-full z-50 px-4 fixed dark:text-white top-0 h-16 bg-white dark:bg-zinc-800 flex  justify-between'
             >
                 <div className='flex py-2'>
                     <Button
@@ -27,8 +27,9 @@ const Header = () => {
                 <div className='flex justify-center items-center w-40 sm:w-72 lg:w-96 transform ease-in-out duration-700'>
                     <Input
                         rounded='rounded-l-lg'
+
                     />
-                    <img src="/svg/search.svg" className='h-[42px] cursor-pointer border-gray-300 border rounded-r-lg dark:border-gray-600 p-2 dark:bg-gray-700' alt="" />
+                    <img src="/svg/search.svg" className='h-[42px] cursor-pointer border-gray-300 border rounded-r-lg dark:border-gray-600 p-2 dark:bg-zinc-700' alt="" />
                 </div>
                 <div className='sm:px-3 flex gap-1 sm:gap-6 justify-center h-full items-center'>
                     <Link className='h-10 w-10 flex items-center justify-center' to='/dashboard'>

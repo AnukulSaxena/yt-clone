@@ -24,7 +24,7 @@ function App() {
   }, [])
 
   return (
-    <div className='h-screen pt-16 relative flex w-full bg-neutral-300 dark:bg-gray-700'>
+    <div className='h-screen pt-16 relative flex w-full bg-neutral-300 dark:bg-zinc-700'>
       <Header />
       <div
         className={`h-screen overflow-y-scroll w-full  fixed left-0 md:left-[20%] md:w-[80%] transform ease-in-out duration-700`}

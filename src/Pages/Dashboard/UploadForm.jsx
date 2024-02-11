@@ -4,7 +4,8 @@ import { Input, Button } from '../../Components'
 import videoService from '../../Express/videoConfig'
 import { toggleUploadingStatus } from '../../store/homeSlice'
 import { useDispatch } from 'react-redux'
-const UploadForm = () => {
+
+const UploadForm = ({ handlePanel }) => {
     const dispatch = useDispatch()
     const [error, setError] = useState(null)
     const { register, handleSubmit } = useForm();
@@ -15,38 +16,41 @@ const UploadForm = () => {
             const response = await videoService.uploadVideo(data);
             console.log(response)
             dispatch(toggleUploadingStatus(false))
+            handlePanel()
 
         } catch (error) {
             setError(error?.message)
+            dispatch(toggleUploadingStatus(false))
+
         }
     }
     return (<div className='mx-auto w-full h-fit  max-w-lg bg-white dark:bg-gray-700 rounded-xl p-10 '>
-        <div className=' w-full dark:text-white text-lg text-center mb-5'>
-            Upload a Video
+        <div className=' w-full flex justify-between dark:text-white text-lg text-center mb-5'>
+            <div>Upload a Video</div>
+            <div className='px-2 bg-black cursor-pointer' onClick={() => { handlePanel() }}>X</div>
         </div>
         {error && <div className=' w-full text-red-500 text-center'>{error}</div>}
         <div>
             <form className=' space-y-5 ' onSubmit={handleSubmit(handleForm)}>
 
-                <div
-                    className='flex gap-2'
-                > <Input
-                        label="Video"
-                        type="file"
-                        {
-                        ...register("videoFile", {
-                            required: true,
-                        })
-                        }
-                    />
-                    <Input
-                        label="Thumbnail"
-                        type="file"
-                        {
-                        ...register("thumbnail", {
-                            required: true,
-                        })}
-                    /></div>
+
+                <Input
+                    label="Video"
+                    type="file"
+                    {
+                    ...register("videoFile", {
+                        required: true,
+                    })
+                    }
+                />
+                <Input
+                    label="Thumbnail"
+                    type="file"
+                    {
+                    ...register("thumbnail", {
+                        required: true,
+                    })}
+                />
 
                 <Input
                     label="Title"
@@ -64,11 +68,6 @@ const UploadForm = () => {
                         required: true
                     })}
                 />
-
-
-
-
-
                 <Button
                     type="submit"
                     className=' w-full'

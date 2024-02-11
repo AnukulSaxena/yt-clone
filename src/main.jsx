@@ -10,7 +10,8 @@ import {
   Error,
   Home,
   Login,
-  Dashboard
+  Dashboard,
+  Channel
 } from './Pages'
 
 const router = createBrowserRouter([
@@ -34,8 +35,13 @@ const router = createBrowserRouter([
         element: <AuthLayout>
           <Dashboard />
         </AuthLayout>
-      }
-
+      },
+      {
+        path: "/channel",
+        element: <AuthLayout>
+          <Channel />
+        </AuthLayout>
+      },
 
 
 
