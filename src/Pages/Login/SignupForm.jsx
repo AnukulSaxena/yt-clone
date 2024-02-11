@@ -34,7 +34,7 @@ function SignupForm() {
     }
 
     return (
-        <div className='mx-auto w-full  max-w-lg bg-white dark:bg-gray-700 rounded-xl p-10 '>
+        <div className='mx-auto w-full h-fit  max-w-lg bg-white dark:bg-gray-700 rounded-xl p-10 '>
             <div className=' w-full dark:text-white text-lg text-center mb-5'>
                 {mode ? "Create New Account" : "Log in to your Account"}
             </div>

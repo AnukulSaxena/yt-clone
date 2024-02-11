@@ -2,7 +2,7 @@ import React from 'react'
 import SignupForm from './SignupForm'
 const Login = () => {
     return (
-        <div className='min-h-screen w-full flex justify-center items-center' >
+        <div className='h-full w-full flex justify-center mt-10' >
             <SignupForm />
         </div>
     )

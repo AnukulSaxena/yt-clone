@@ -16,15 +16,12 @@ class AuthService {
     setAuthTokenFromLocalStorage() {
         const token = localStorage.getItem('yt-clone-token');
         if (token) {
-            console.log(token);
             this.setAuthToken(token);
         }
     }
 
     setAuthToken(token) {
         if (token) {
-            console.log(typeof (token))
-            console.log("playlsitconfig :: setauthtoken :: token", token)
             this.axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token['accessToken']}`;
         } else {
             delete this.axiosInstance.defaults.headers.common['Authorization'];
