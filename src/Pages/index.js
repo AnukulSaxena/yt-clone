@@ -3,10 +3,12 @@ import Home from "./Home/Home.jsx";
 import Login from "./Login/Login.jsx";
 import Dashboard from "./Dashboard/Dashboard.jsx";
 import Channel from "./Channel/Channel.jsx";
+import Video from "./Video/Video.jsx";
 export {
     Error,
     Home,
     Login,
     Dashboard,
-    Channel
+    Channel,
+    Video
 }

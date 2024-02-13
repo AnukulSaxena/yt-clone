@@ -1,9 +1,15 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const VideoCard = ({ video }) => {
+    const navigate = useNavigate();
+    async function handleCardClick() {
+        navigate(`/video/${video?._id}`)
+    }
     return (
         <div
-            className='h-[340px] w-96 flex flex-col'
+            onClick={handleCardClick}
+            className='h-[340px] w-96 flex cursor-pointer flex-col'
         >
             <img
                 className=' h-3/4 object-cover rounded-xl'

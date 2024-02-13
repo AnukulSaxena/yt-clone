@@ -17,12 +17,13 @@ const Videos = ({ userId }) => {
     }, [])
     return (
         <div
-            className='w-full h-fit flex flex-wrap justify-center gap-5 '
+            className='w-full h-fit flex flex-wrap start gap-5 p-5'
         >
             {
                 videoData.map((video, index) => {
                     return (
                         <VideoCard
+                            key={video._id}
                             video={video}
                         />
                     )

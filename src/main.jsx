@@ -11,7 +11,8 @@ import {
   Home,
   Login,
   Dashboard,
-  Channel
+  Channel,
+  Video
 } from './Pages'
 
 const router = createBrowserRouter([
@@ -40,6 +41,12 @@ const router = createBrowserRouter([
         path: "/channel",
         element: <AuthLayout>
           <Channel />
+        </AuthLayout>
+      },
+      {
+        path: "/video/:videoId",
+        element: <AuthLayout>
+          <Video />
         </AuthLayout>
       },
 
