@@ -78,11 +78,12 @@ class AuthService {
             console.log("Logout clicked");
             localStorage.removeItem("token");
             this.setAuthToken(null);
-            return await this.axiosInstance.post('/users/logout')
+            await this.axiosInstance.post('/users/logout')
+            return true
 
         } catch (error) {
             console.log("Appwrite serive :: logout :: error", error);
-            throw error
+            throw false
         }
     }
 }

@@ -1,12 +1,28 @@
 import React, { useState } from 'react'
 import { Button, Input } from '../'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { toggleSideBar } from '../../store/homeSlice'
+import authService from '../../Express/authConfig'
 import SideBar from './SideBar'
+import { useDispatch } from 'react-redux'
+import { logout } from '../../store/authSlice'
 const Header = () => {
-    const { userData } = useSelector(state => state.auth)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const { userData, status } = useSelector(state => state.auth)
     const [isSideBarOpen, setIsSideBarOpen] = useState(false)
+
+    async function handleClick() {
+        if (status) {
+            const isLoggedOut = await authService.logoutAccount()
+            if (isLoggedOut) {
+                dispatch(logout())
+                navigate('/')
+            }
+        } else {
+            navigate('/login')
+        }
+    }
     return (
 
         <>
@@ -35,9 +51,9 @@ const Header = () => {
                     <Link className='h-10 w-10 flex items-center justify-center' to='/dashboard'>
                         +
                     </Link>
-                    <Link to='/login' className='h-10 w-10'>
+                    <div onClick={handleClick} className='h-10 w-10'>
                         <img src={userData?.avatar} className='h-full rounded-full' alt="img" />
-                    </Link>
+                    </div>
                 </div>
 
 

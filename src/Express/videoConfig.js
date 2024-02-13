@@ -47,11 +47,10 @@ class VideoService {
         }
     }
 
-    async
 
-    async getAllVideos() {
+    async getAllVideos(userId) {
         try {
-            const response = await this.axiosInstance.get('/videos');
+            const response = await this.axiosInstance.get(`/videos?userId=${userId}`);
             console.log(response)
             return response.data.data
         } catch (error) {
