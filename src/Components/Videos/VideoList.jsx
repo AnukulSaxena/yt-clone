@@ -7,7 +7,6 @@ const VideoList = ({
 }) => {
     const navigate = useNavigate();
     async function handleCardClick() {
-        console.log(video?._id)
         navigate(`/video/${video?._id}`)
     }
     return (
