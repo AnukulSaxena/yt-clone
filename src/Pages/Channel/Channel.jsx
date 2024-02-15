@@ -36,6 +36,7 @@ const Channel = () => {
                 </div>
                 <Videos
                     userId={userData?._id}
+                    className='w-full h-fit flex flex-wrap gap-5 p-5'
                 />
             </div>
 

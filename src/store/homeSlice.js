@@ -4,6 +4,7 @@ const homeSlice = createSlice({
     name: 'home',
     initialState: {
         sideBarStatus: true,
+        isSideBarOpen: true,
         uploadingStatus: false,
     },
     reducers: {
@@ -12,10 +13,13 @@ const homeSlice = createSlice({
         },
         toggleUploadingStatus: (state, actions) => {
             state.uploadingStatus = actions.payload;
+        },
+        toggleIsSideBarOpen: (state, actions) => {
+            state.isSideBarOpen = actions.payload;
         }
     },
 })
 
-export const { toggleSideBar, toggleUploadingStatus } = homeSlice.actions
+export const { toggleSideBar, toggleUploadingStatus, toggleIsSideBarOpen } = homeSlice.actions
 
 export default homeSlice.reducer

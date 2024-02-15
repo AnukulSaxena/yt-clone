@@ -6,11 +6,13 @@ import authService from '../../Express/authConfig'
 import SideBar from './SideBar'
 import { useDispatch } from 'react-redux'
 import { logout } from '../../store/authSlice'
+import { toggleIsSideBarOpen } from '../../store/homeSlice'
 const Header = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const { isSideBarOpen } = useSelector(state => state.home)
     const { userData, status } = useSelector(state => state.auth)
-    const [isSideBarOpen, setIsSideBarOpen] = useState(false)
+
 
     async function handleClick() {
         if (status) {
@@ -31,8 +33,8 @@ const Header = () => {
             >
                 <div className='flex py-2'>
                     <Button
-                        className='my-2 md:hidden'
-                        onClick={() => { setIsSideBarOpen(prev => !prev) }}
+                        className='my-2 '
+                        onClick={() => { dispatch(toggleIsSideBarOpen(!isSideBarOpen)) }}
                     >
 
                     </Button>

@@ -48,17 +48,13 @@ class VideoService {
     }
 
     async getAllVideos(userId) {
-        console.log(userId)
         try {
             let response;
             if (!userId) {
-                console.log('init')
                 response = await this.axiosInstance.get(`/videos`);
             } else {
                 response = await this.axiosInstance.get(`/videos?userId=${userId}`);
             }
-
-            console.log(response)
             return response.data.data
         } catch (error) {
             console.error("VideoConfig :: getallVideos :: error", error)

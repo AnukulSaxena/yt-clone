@@ -1,26 +1,25 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const VideoCard = ({
+const VideoList = ({
     video,
 
 }) => {
     const navigate = useNavigate();
     async function handleCardClick() {
+        console.log(video?._id)
         navigate(`/video/${video?._id}`)
     }
     return (
         <div
             onClick={handleCardClick}
-            className='h-[340px] w-96 flex cursor-pointer flex-col'
+            className=' w-full h-32 flex gap-5 cursor-pointer'
         >
             <img
-                className=' h-3/4 object-cover rounded-xl'
+                className=' min-w-[40%] h-full object-cover rounded-xl'
                 src={video.thumbnail} alt={video.title} />
             <div className=' h-1/4 flex w-full'>
-                <div className='h-full p-3 w-20'>
-                    <img className=' rounded-full ' src={video.ownerAvatar} alt="" />
-                </div>
+
                 <div className=' flex flex-col h-full w-full pt-2'>
                     <div className=' text-white text-xl font-semibold'>{video.title}</div>
                     <div className='dark:text-white opacity-60 text-md'>
@@ -35,4 +34,4 @@ const VideoCard = ({
     )
 }
 
-export default VideoCard
+export default VideoList
