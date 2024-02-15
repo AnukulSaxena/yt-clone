@@ -4,7 +4,7 @@ const homeSlice = createSlice({
     name: 'home',
     initialState: {
         sideBarStatus: true,
-        isSideBarOpen: true,
+        isSideBarOpen: false,
         uploadingStatus: false,
     },
     reducers: {

@@ -29,7 +29,6 @@ const SideBar = () => {
                             Subscriptions
                         </NavLink>
                     </div>
-                    <h1 className='px-5 font-bold'>You \/</h1>
                     <div className='w-full h-fit px-5 border-b border-neutral-400'>
                         <NavLink
                             to="/channel"

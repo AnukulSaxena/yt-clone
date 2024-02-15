@@ -24,10 +24,10 @@ function App() {
   }, [])
 
   return (
-    <div className='h-screen pt-16 relative flex w-full bg-neutral-300 dark:bg-zinc-700'>
+    <div className='h-screen pt-16 relative flex w-full bg-neutral-300 dark:bg-neutral-800'>
       <Header />
       <div
-        className={`h-screen overflow-y-scroll fixed ${isSideBarOpen ? "md:left-[15%] md:w-[85%]" : "md:w-full md:left-0"} w-full left-0  transform ease-in-out duration-700`}
+        className={`h-screen overflow-y-scroll no-scrollbar fixed ${isSideBarOpen ? "md:left-[15%] md:w-[85%]" : "md:w-full md:left-0"} w-full left-0  transform ease-in-out duration-700`}
       >
         <main className='h-full'>
           <Outlet />

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import videoService from '../../Express/videoConfig';
 import VideoCard from './VideoCard';
 import VideoList from './VideoList';
+import VideoSkeleton from './VideoSkeleton';
 
 
 const Videos = ({
@@ -23,7 +24,7 @@ const Videos = ({
         <div
             className={className}
         >
-            {
+            {videoData.length ?
                 videoData.map((video, index) => {
 
                     return videoType ? (
@@ -38,7 +39,19 @@ const Videos = ({
                         />
                     )
                 })
+                :
+                Array.from({ length: 20 }).map((_, index) => (
+                    <VideoSkeleton
+                        videoType={videoType}
+                        key={index}
+                        className={videoType ? "h-64 w-96" : "h-32 w-52 "}
+                    />
+                ))
             }
+
+
+
+
 
         </div>
     )

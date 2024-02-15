@@ -42,7 +42,6 @@ class LikeService {
     async toggleCommentLike(commentId) {
         try {
             const response = await this.axiosInstance.post(`/likes/toggle/c/${commentId}`);
-            console.log(response)
             return true
         } catch (error) {
             console.log('likeConfig:: toggleCommentLike :: error', error);
