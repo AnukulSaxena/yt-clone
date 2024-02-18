@@ -7,7 +7,7 @@ const VideoCard = ({
 }) => {
     const navigate = useNavigate();
     async function handleCardClick() {
-        navigate(`/video/${video?._id}`)
+        navigate(`/video/${video?._id}/${video?.ownerId}`)
     }
     return (
         <div

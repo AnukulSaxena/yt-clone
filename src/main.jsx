@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         </AuthLayout>
       },
       {
-        path: "/video/:videoId",
+        path: "/video/:videoId/:ownerId",
         element: <AuthLayout>
           <Video />
         </AuthLayout>

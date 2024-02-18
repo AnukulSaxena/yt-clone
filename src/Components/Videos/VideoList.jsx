@@ -7,15 +7,15 @@ const VideoList = ({
 }) => {
     const navigate = useNavigate();
     async function handleCardClick() {
-        navigate(`/video/${video?._id}`)
+        navigate(`/video/${video?._id}/${video?.ownerId}`)
     }
     return (
         <div
             onClick={handleCardClick}
-            className=' w-full h-32 flex gap-5 cursor-pointer'
+            className=' w-full h-32 lg:h-28 flex gap-5 cursor-pointer'
         >
             <img
-                className=' min-w-[40%] h-full object-cover rounded-xl'
+                className=' lg:w-[40%] w-[30%] object-cover rounded-md'
                 src={video.thumbnail} alt={video.title} />
             <div className=' h-1/4 flex w-full'>
 

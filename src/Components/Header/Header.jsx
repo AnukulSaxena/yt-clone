@@ -29,7 +29,7 @@ const Header = () => {
 
         <>
             <div
-                className='w-full z-50 px-4 fixed dark:text-white top-0 h-16 bg-white dark:bg-zinc-800 flex  justify-between'
+                className='w-full shadow-2xl z-50 px-4 fixed dark:text-white top-0 h-16 bg-white dark:bg-zinc-800 flex  justify-between'
             >
                 <div className='flex py-2'>
                     <Button

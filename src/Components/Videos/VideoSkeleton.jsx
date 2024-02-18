@@ -1,6 +1,6 @@
 import React from 'react'
 
-const VideoSkeleton = ({ className = 'h-56', videoType, isHidden = true }) => {
+const VideoSkeleton = ({ className = 'h-56', videoType }) => {
     return (
         <div className={!videoType ? "flex gap-2" : "space-y-2"}>
             <div role="status" className={`${className} flex items-center justify-center   bg-neutral-300 rounded-lg animate-pulse dark:bg-neutral-700`}>
@@ -10,16 +10,15 @@ const VideoSkeleton = ({ className = 'h-56', videoType, isHidden = true }) => {
                 </svg>
                 <span className="sr-only">Loading...</span>
             </div>
-            {
-                isHidden &&
-                <div role="status" className={`${!videoType ? "w-1/2" : "w-full"} mt-2 animate-pulse`}>
-                    <div className="h-2.5 bg-neutral-200 rounded-full dark:bg-neutral-700 w-2/3 mb-4"></div>
-                    <div className="h-2 bg-neutral-200 rounded-full dark:bg-neutral-700 max-w-[360px] mb-2.5"></div>
-                    <div className="h-2 bg-neutral-200 rounded-full dark:bg-neutral-700 mb-2.5"></div>
-                    <div className="h-2 bg-neutral-200 rounded-full dark:bg-neutral-700 max-w-[300px] mb-2.5"></div>
-                    <span className="sr-only">Loading...</span>
-                </div>
-            }
+
+            <div role="status" className={`${!videoType ? "w-1/2" : "w-full"} mt-2 animate-pulse`}>
+                <div className="h-2.5 bg-neutral-200 rounded-full dark:bg-neutral-700 w-2/3 mb-4"></div>
+                <div className="h-2 bg-neutral-200 rounded-full dark:bg-neutral-700 max-w-[360px] mb-2.5"></div>
+                <div className="h-2 bg-neutral-200 rounded-full dark:bg-neutral-700 mb-2.5"></div>
+                <div className="h-2 bg-neutral-200 rounded-full dark:bg-neutral-700 max-w-[300px] mb-2.5"></div>
+                <span className="sr-only">Loading...</span>
+            </div>
+
         </div>
 
 
