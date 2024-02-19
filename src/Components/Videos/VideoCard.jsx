@@ -1,10 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-
-const VideoCard = ({
-    video,
-
-}) => {
+import { useSelector } from 'react-redux';
+const VideoCard = ({ video, }) => {
+    const { isSideBarOpen } = useSelector(state => state.home)
     const navigate = useNavigate();
     async function handleCardClick() {
         navigate(`/video/${video?._id}/${video?.ownerId}`)
@@ -12,7 +10,7 @@ const VideoCard = ({
     return (
         <div
             onClick={handleCardClick}
-            className='h-[340px] w-96 flex cursor-pointer flex-col'
+            className={`h-[340px] ease-in-out duration-700 flex cursor-pointer flex-col ${isSideBarOpen ? "w-[300px]" : "w-[340px]"}`}
         >
             <img
                 className=' h-3/4 object-cover rounded-xl'

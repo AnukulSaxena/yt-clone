@@ -8,7 +8,7 @@ import VideoSkeleton from './VideoSkeleton';
 const Videos = ({
     videoType = true,
     userId,
-    className = 'w-full h-fit flex flex-wrap start gap-5 p-5'
+    className = 'w-full h-fit flex flex-wrap justify-center gap-5 p-5'
 }) => {
     const [videoData, setVideoData] = useState([]);
     const [loading, setLoading] = useState(true);

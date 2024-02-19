@@ -26,10 +26,10 @@ const CommentSection = ({ userData, videoId }) => {
             className='  w-full h-56 overflow-y-scroll no-scrollbar  md:h-fit  rounded-md '
         >
             <div
-                className='w-full h-20 px-2 flex items-center'
+                className='w-full h-20 flex items-center'
             >
-                <div className='h-full p-3 w-20'>
-                    <img className=' rounded-full ' src={userData.avatar} alt="img" />
+                <div className='h-20 p-3 w-20'>
+                    <img className=' h-full min-w-full object-cover  rounded-full ' src={userData.avatar} alt="img" />
 
                 </div>
 
@@ -37,7 +37,7 @@ const CommentSection = ({ userData, videoId }) => {
                     type="text"
                     value={inputValue}
                     onChange={(e) => { setInputValue(e.target.value) }}
-                    className="w-full py-1 bg-neutral-800 border-b-2 border-neutral-900 focus:outline-none dark:text-white"
+                    className="flex-grow py-1 bg-neutral-800 border-b-2 border-neutral-900 focus:outline-none dark:text-white"
                 />
                 <button
                     onClick={handleClick}

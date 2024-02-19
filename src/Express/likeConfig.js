@@ -39,6 +39,17 @@ class LikeService {
         }
     }
 
+    async getVideoLikesInfo(videoId) {
+        try {
+            const response = await this.axiosInstance.get(`/likes/videos/info/${videoId}`);
+            console.log(response)
+            return response.data.data
+        } catch (error) {
+            console.log('likeConfig:: toggleVideoLike :: error', error);
+            return null
+        }
+    }
+
     async toggleCommentLike(commentId) {
         try {
             const response = await this.axiosInstance.post(`/likes/toggle/c/${commentId}`);
