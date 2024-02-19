@@ -23,7 +23,7 @@ const CommentSection = ({ userData, videoId }) => {
 
 
         <div
-            className='  w-full h-56 overflow-y-scroll no-scrollbar  md:h-fit  rounded-md '
+            className='  w-full h-56 overflow-y-scroll no-scrollbar  lg:h-fit  rounded-md '
         >
             <div
                 className='w-full h-20 flex items-center'

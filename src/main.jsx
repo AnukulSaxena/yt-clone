@@ -12,7 +12,8 @@ import {
   Login,
   Dashboard,
   Channel,
-  Video
+  Video,
+  Subscription
 } from './Pages'
 
 const router = createBrowserRouter([
@@ -49,10 +50,12 @@ const router = createBrowserRouter([
           <Video />
         </AuthLayout>
       },
-
-
-
-
+      {
+        path: "/subscription",
+        element: <AuthLayout>
+          <Subscription />
+        </AuthLayout>
+      },
     ]
   }
 ])

@@ -7,19 +7,10 @@ import VideoSkeleton from './VideoSkeleton';
 
 const Videos = ({
     videoType = true,
-    userId,
+    videoData = [],
     className = 'w-full h-fit flex flex-wrap justify-center gap-5 p-5'
 }) => {
-    const [videoData, setVideoData] = useState([]);
-    const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        videoService.getAllVideos(userId)
-            .then(res => {
-                setVideoData(res)
-            })
-            .finally(setLoading(false))
-    }, [])
     return (
         <div
             className={className}

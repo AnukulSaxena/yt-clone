@@ -21,7 +21,7 @@ const SideBar = () => {
                             Home
                         </NavLink>
                         <NavLink
-                            to="/login"
+                            to="/subscription"
                             className={({ isActive }) =>
                                 isActive ? "dark:bg-neutral-700 h-10 flex items-center justify-center rounded-md w-full bg-gray-300" : "h-10 flex items-center justify-center rounded-md w-full"
                             }

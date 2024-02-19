@@ -62,6 +62,17 @@ class VideoService {
         }
     }
 
+    async getSubscriptionVideos(page = 1, limit = 10) {
+        try {
+            let response = await this.axiosInstance
+                .get(`/videos/user/subscriptions?page=${page}&limit=${limit}`);
+            return response.data.data
+        } catch (error) {
+            console.error("VideoConfig :: getallVideos :: error", error)
+            return []
+        }
+    }
+
     async getAllVideosCount(userId) {
         try {
             const response = await this.axiosInstance.get(`videos/count/?userId=${userId}`)

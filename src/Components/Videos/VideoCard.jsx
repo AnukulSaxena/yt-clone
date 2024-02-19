@@ -10,7 +10,7 @@ const VideoCard = ({ video, }) => {
     return (
         <div
             onClick={handleCardClick}
-            className={`h-[340px] ease-in-out duration-700 flex cursor-pointer flex-col ${isSideBarOpen ? "w-[300px]" : "w-[340px]"}`}
+            className={` ease-in-out duration-700 flex cursor-pointer flex-col ${isSideBarOpen ? "w-[300px] h-[300px]" : "w-[340px] h-[340px]"}`}
         >
             <img
                 className=' h-3/4 object-cover rounded-xl'

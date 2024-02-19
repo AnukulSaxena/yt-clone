@@ -13,6 +13,9 @@ const Video = () => {
     const [video, setVideo] = useState(null)
     const { userData } = useSelector(state => state.auth)
     const { isSideBarOpen } = useSelector(state => state.home)
+    const [videoData, setVideoData] = useState([]);
+
+
     useEffect(() => {
         setVideo(null)
         videoService.getVideoById(videoId)
@@ -20,16 +23,20 @@ const Video = () => {
                 setVideo(res)
             })
 
+        videoService.getAllVideos()
+            .then(res => {
+                setVideoData(res)
+            })
     }, [videoId])
     return (
-        <div className={` ${isSideBarOpen ? "" : "xl:pl-16 "} pl-5 pr-5 md:relative gap-5 pt-5 pb-40 bg-neutral-800 lg:flex transform transition-transform ease-in-out duration-700`}>
+        <div className={` ${isSideBarOpen ? "" : "xl:pl-32 "} pl-5 pr-5 md:relative gap-5 pt-5 pb-40 bg-neutral-800 lg:flex transform transition-transform ease-in-out duration-700`}>
             <div
-                className='md:min-w-[72%] mb-5 w-full space-y-3'
+                className='md:min-w-[65%] mb-5 w-full space-y-3'
             >
                 {
                     video ?
                         <>
-                            <div className='w-full xl:h-[630px] lg:h-[550px] md:h-[500px] sm:h-[450px] h-64 transform ease-in-out duration-700 rounded-lg bg-black flex items-center'>
+                            <div className='w-full  xl:h-[500px] lg:h-[450px] md:h-[400px] sm:h-[350px] h-64 transform ease-in-out duration-700 rounded-lg bg-black flex items-center'>
                                 <video
                                     className='w-full max-h-full rounded-md'
                                     controls >
@@ -41,7 +48,8 @@ const Video = () => {
                         </> :
                         <VideoSkeleton
                             videoType={true}
-                            className='xl:h-[630px] ease-in-out duration-700 lg:h-[550px] md:h-[500px] sm:h-[450px] h-64 w-full'
+                            videoData={videoData}
+                            className=' ease-in-out duration-700 xl:h-[500px] lg:h-[450px] md:h-[400px] sm:h-[350px] h-64 w-full'
                         />
                 }
                 <VideoInfo
@@ -60,6 +68,7 @@ const Video = () => {
                 <Videos
                     className=' flex flex-col gap-5'
                     videoType={false}
+                    videoData={videoData}
                 />
             </div>
         </div>

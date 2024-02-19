@@ -19,6 +19,13 @@ const Channel = () => {
         },
 
     ]
+    const [videoData, setVideoData] = useState([]);
+    useEffect(() => {
+        videoService.getAllVideos(userData._id)
+            .then(res => {
+                setVideoData(res)
+            })
+    }, [])
     return (
         <div className='h-full '>
             <ChannelInfo />
@@ -35,7 +42,7 @@ const Channel = () => {
                     }
                 </div>
                 <Videos
-                    userId={userData?._id}
+                    videoData={videoData}
                     className='w-full h-fit flex flex-wrap gap-5 p-5'
                 />
             </div>

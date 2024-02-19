@@ -7,6 +7,7 @@ import SideBar from './SideBar'
 import { useDispatch } from 'react-redux'
 import { logout } from '../../store/authSlice'
 import { toggleIsSideBarOpen } from '../../store/homeSlice'
+
 const Header = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
